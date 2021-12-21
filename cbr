@@ -1,0 +1,6 @@
+#!python3
+# -*- code by: utf-8 -*-
+import unit.nayuki_core as nayuki_core
+
+
+nayuki_core.run_command_from_yaml('execute', nayuki_core.MCDR_server_list_yaml_path, '!!ChatBridge $1')

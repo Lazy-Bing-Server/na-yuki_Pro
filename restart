@@ -1,0 +1,15 @@
+#!python3
+# -*- code by: utf-8 -*-
+import unit.nayuki_core as nayuki_core
+
+
+# str.
+kill_all_screen: str = '''screen -wipe
+screen -ls | grep Detached | cut -d. -f1 | awk '{print $1}' | xargs kill
+sleep 1
+'''
+# kill all exist screen.
+nayuki_core.send_command(kill_all_screen)
+# start all minecraft server.
+nayuki_core.run_command_from_yaml('create', nayuki_core.minecraft_server_yaml_path, 'start.sh')
+nayuki_core.run_command_from_yaml('create', nayuki_core.MCDR_server_list_yaml_path, 'python3 -m mcdreforged')
